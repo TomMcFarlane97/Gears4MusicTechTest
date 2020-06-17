@@ -7,7 +7,7 @@ require dirname(__DIR__, 1) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARAT
 
 $container = new Container();
 
-require_once dirname(__DIR__, 1) . DIRECTORY_SEPARATOR . 'dependencies.php';
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'dependencies.php';
 
 AppFactory::setContainer($container);
 $app = AppFactory::create();
@@ -16,6 +16,6 @@ $app->addRoutingMiddleware();
 
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
-require_once dirname(__DIR__, 1) . DIRECTORY_SEPARATOR . 'routes.php';
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'routes.php';
 
 $app->run();

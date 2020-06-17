@@ -1,0 +1,13 @@
+{
+    "name": "tommc/gears4music-tech-test",
+    "type": "project",
+    "require": {
+        "php": "7.4.*",
+        "symfony/console": "^5.1",
+        "nesbot/carbon": "^2.35",
+        "slim/psr7": "^1.1",
+        "guzzlehttp/psr7": "^1.6",
+        "http-interop/http-factory-guzzle": "^1.0",
+        "slim/slim": "4.*"
+    }
+}

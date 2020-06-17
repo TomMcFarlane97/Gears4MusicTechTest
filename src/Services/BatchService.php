@@ -53,6 +53,9 @@ class BatchService
     }
 
     /**
+     * With this function, I could have got the data for each courier separately, or all the consignments in one go
+     * and then sort it out with PHP, I opted for a foreach loop vs an array function, e.g. array_filter because it
+     * is more resource heave and with the way I have done it, it allows it all to be sorted out in one go.
      * @throws EndBatchException
      * @throws Exception
      */

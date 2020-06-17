@@ -43,9 +43,13 @@ class BatchService
     /**
      * @throws DatabaseException
      */
-    public function startNewBatch(): void
+    public function startNewBatch(): Batch
     {
-
+        // this should return null but will comment out so code works
+//        if ($this->batchRepository->findCurrentBatch()) {
+//            throw new DatabaseException('There is already a batch in process');
+//        }
+        return $this->batchRepository->createBatch();
     }
 
     /**

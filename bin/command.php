@@ -19,7 +19,7 @@ $app->add(
 );
 
 $app->add(
-    new EndBatchCommand('batch:start', $container->get(BatchService::class))
+    new EndBatchCommand('batch:end', $container->get(BatchService::class))
 );
 
 $app->run();

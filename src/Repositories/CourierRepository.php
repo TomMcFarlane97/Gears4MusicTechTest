@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Batch\Courier;
+use App\Entities\Courier;
 
 class CourierRepository
 {

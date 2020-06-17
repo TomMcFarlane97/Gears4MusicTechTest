@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Factory;
+namespace App\Factories;
 
 use App\Interfaces\MailerInterface;
+use App\Services\EmailSenderService;
 
 class EmailFactory
 {

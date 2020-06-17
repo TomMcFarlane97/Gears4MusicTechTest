@@ -3,18 +3,37 @@
 namespace App\Services;
 
 use App\Exceptions\FTPException;
-use App\Factory\EmailFactory;
+use App\Factories\EmailFactory;
 use Carbon\Carbon;
+use RuntimeException;
 
 class DataTransferringService
 {
     /**
+     * @return string
+     * @throws RuntimeException
+     */
+    private function createNewDirectory(): string
+    {
+        $directoryToSave = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR .
+            (Carbon::now()->format('Y-m-d')) . DIRECTORY_SEPARATOR;
+        if (is_dir($directoryToSave)) {
+            return $directoryToSave;
+        }
+        if (!mkdir($directoryToSave) && !is_dir($directoryToSave)) {
+            throw new RuntimeException(sprintf('Directory "%s" was not created', $directoryToSave));
+        }
+        return $directoryToSave;
+    }
+
+    /**
      * @throws FTPException
+     * @throws RuntimeException
      */
     public function sendFtpData(array $consignmentsToSend, array $ftpDetails): void
     {
-        $directoryToSave = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR .
-            (Carbon::now()->format('Y-m-d')) . DIRECTORY_SEPARATOR;
+        $directory = $this->createNewDirectory();
+
         /**
          * @var string $consignmentFTP
          * @var array $consignmentReferences

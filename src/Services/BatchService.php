@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Batch\Batch;
-use App\Batch\Courier;
+use App\Entities\Batch;
+use App\Entities\Courier;
 use App\Exceptions\DatabaseException;
 use App\Exceptions\EndBatchException;
 use App\Repositories\BatchRepository;

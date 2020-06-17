@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Batch\Batch;
-use App\Batch\Consignment;
-use App\Batch\Courier;
+use App\Entities\Batch;
+use App\Entities\Consignment;
+use App\Entities\Courier;
 use Exception;
 
 class ConsignmentRepository

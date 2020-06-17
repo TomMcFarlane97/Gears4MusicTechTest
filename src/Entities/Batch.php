@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Batch;
+namespace App\Entities;
 
 use DateTimeInterface;
 

@@ -8,6 +8,7 @@ class EmailSenderService implements MailerInterface
 {
     public function send(): bool
     {
+        return true;
         // TODO: Implement send() method.
     }
 

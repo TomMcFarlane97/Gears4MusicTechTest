@@ -60,10 +60,12 @@ class BatchService
             switch ($courier->getDataTransferMethod()) {
                 case Courier::TRANSFER_METHOD_FTP:
                     $ftpData[$courier->getDataTransferLocation()][] = $consignment->getUniqueReference();
-                    $ftpDetails[$courier->getDataTransferLocation()][] = [
-                        'login' => $courier->getLogin(),
-                        'password' => $courier->getPassword(),
-                    ];
+                    if (empty($ftpDetails[$courier->getDataTransferLocation()])) {
+                        $ftpDetails[$courier->getDataTransferLocation()] = [
+                            'login' => $courier->getLogin(),
+                            'password' => $courier->getPassword(),
+                        ];
+                    }
                     break;
                 case Courier::TRANSFER_METHOD_EMAIL:
                     $emailData[$courier->getDataTransferLocation()][] = $consignment->getUniqueReference();

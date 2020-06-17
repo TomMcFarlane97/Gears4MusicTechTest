@@ -26,17 +26,18 @@ class EndBatchCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $output->write('Ending Current Batch');
+        $output->write('Ending Current Batch', true);
         try {
             $batchToEnd = $this->batchService->endCurrentBatch();
             if (!$batchToEnd) {
-                $output->write('There is no batch to end');
+                $output->write('There is no batch to end', true);
                 return self::SUCCESS;
             }
             $this->batchService->sendDataToClients($batchToEnd);
+            $output->write('Batch sent out successfully', true);
         } catch (Exception $exception) {
-            error_log($exception->getMessage(), $exception->getTraceAsString());
-            $output->write('Something went wrong. Check the logs');
+            error_log($exception->getMessage());
+            $output->write('Something went wrong. Check the logs', true);
             return self::FAILURE;
         }
         return self::SUCCESS;

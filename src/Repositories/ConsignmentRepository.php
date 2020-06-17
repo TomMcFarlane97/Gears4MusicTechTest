@@ -28,14 +28,14 @@ class ConsignmentRepository
         );
 
         $ancCourier = CourierRepository::createCourier(
-                1,
-                Courier::COURIER_ANC,
-                Courier::TRANSFER_METHOD_FTP,
-                'ftp.example.com',
-                40,
+            1,
+            Courier::COURIER_ANC,
+            Courier::TRANSFER_METHOD_FTP,
+            'ftp.example.com',
+            40,
             'example',
             'password'
-            );
+        );
         return [
             $this->createConsignment(
                 1,

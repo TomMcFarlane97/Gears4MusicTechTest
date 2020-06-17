@@ -43,25 +43,26 @@ class DataTransferringService
                 throw new FTPException(sprintf('No valid login or password for %s', $consignmentFTP));
             }
 
-            $fileName = password_hash($consignmentFTP, PASSWORD_BCRYPT);
-            file_put_contents($directoryToSave . $fileName, implode($consignmentReferences));
+            $fileName = md5(uniqid($consignmentFTP, true)) . '.txt';
+            file_put_contents($directory . $fileName, implode($consignmentReferences));
 
-            $connection = ftp_connect($consignmentFTP);
-
-            $login = ftp_login(
-                $connection,
-                $ftpDetails[$consignmentFTP]['login'],
-                $ftpDetails[$consignmentFTP]['password']
-            );
-
-            if (!$login) {
-                throw new FTPException(sprintf('Unable to login to FTP client - %s', $consignmentFTP));
-            }
-
-            if (!ftp_put($connection, $fileName, $directoryToSave . $fileName, FTP_ASCII)) {
-                throw new FTPException(sprintf('Unable to send FTP to %s', $consignmentFTP));
-            }
-            ftp_close($connection);
+//            Commented out so it will work with mimicked data
+//            $connection = ftp_connect($consignmentFTP);
+//
+//            $login = ftp_login(
+//                $connection,
+//                $ftpDetails[$consignmentFTP]['login'],
+//                $ftpDetails[$consignmentFTP]['password']
+//            );
+//
+//            if (!$login) {
+//                throw new FTPException(sprintf('Unable to login to FTP client - %s', $consignmentFTP));
+//            }
+//
+//            if (!ftp_put($connection, $fileName, $directoryToSave . $fileName, FTP_ASCII)) {
+//                throw new FTPException(sprintf('Unable to send FTP to %s', $consignmentFTP));
+//            }
+//            ftp_close($connection);
         }
     }
 

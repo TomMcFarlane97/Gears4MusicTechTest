@@ -10,6 +10,7 @@ $container = new Container();
 require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'dependencies.php';
 
 AppFactory::setContainer($container);
+
 $app = AppFactory::create();
 // Add Routing Middleware
 $app->addRoutingMiddleware();

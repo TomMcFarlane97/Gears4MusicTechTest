@@ -5,12 +5,14 @@ namespace App\Batch;
 class Consignment
 {
     private int $id;
+    private int $uniqueReference;
     private Courier $courier;
     private Batch $batch;
 
-    public function __construct(int $id, Courier $courier, Batch $batch)
+    public function __construct(int $id, int $uniqueReference, Courier $courier, Batch $batch)
     {
         $this->id = $id;
+        $this->uniqueReference = $uniqueReference;
         $this->courier = $courier;
         $this->batch = $batch;
     }
@@ -18,6 +20,17 @@ class Consignment
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function getUniqueReference(): int
+    {
+        return $this->uniqueReference;
+    }
+
+    public function setUniqueReference(int $uniqueReference): Courier
+    {
+        $this->uniqueReference = $uniqueReference;
+        return $this;
     }
 
     public function getCourier(): Courier

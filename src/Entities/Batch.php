@@ -13,7 +13,7 @@ class Batch
     /** @var Consignment[] */
     private array $consignments = [];
 
-    public function __construct(int $id, DateTimeInterface $startDateTime, ?DateTimeInterface $endDateTime)
+    public function __construct(int $id, DateTimeInterface $startDateTime, ?DateTimeInterface $endDateTime = null)
     {
         $this->id = $id;
         $this->startDateTime = $startDateTime;

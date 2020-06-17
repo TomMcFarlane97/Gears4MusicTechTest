@@ -31,7 +31,7 @@ class StartBatchCommand extends Command
             $batch = $this->batchService->startNewBatch();
             $output->write(sprintf('Successfully started a new batch: %s', $batch->getId()), true);
         } catch (DatabaseException $exception) {
-            error_log($exception->getMessage(), $exception->getTraceAsString());
+            error_log($exception->getMessage());
             return self::FAILURE;
         }
         return self::SUCCESS;

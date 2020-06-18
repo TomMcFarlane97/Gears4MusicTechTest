@@ -46,7 +46,7 @@ class DataTransferringService
             $fileName = md5(uniqid($consignmentFTP, true)) . '.txt';
             file_put_contents($directory . $fileName, implode($consignmentReferences));
 
-//            Commented out so it will work with mimicked data
+//            @TODO - Commented out so it will work with mimicked data
 //            $connection = ftp_connect($consignmentFTP);
 //
 //            $login = ftp_login(

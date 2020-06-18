@@ -43,7 +43,6 @@ class ConsignmentService
             throw new RequestException('There is no active batch');
         }
 
-
         return $this->consignmentRepository->createConsignment(
             1,
             (int) $data['uniqueReference'] * $courier->getUniqueGeneration() ,

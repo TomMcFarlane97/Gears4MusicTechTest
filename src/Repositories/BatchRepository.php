@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Entities\Batch;
-use App\Exceptions\DatabaseException;
 use Carbon\Carbon;
 
 class BatchRepository

@@ -13,7 +13,7 @@ Requirements to run this tech test
 - [Slim framework](http://www.slimframework.com/docs/v4/) version 4
 - [Symfony Console](https://symfony.com/doc/current/components/console.html) - 5.1
 
-###Tom McFarlanes Tech Test
+###Tom McFarlane's Tech Test
 It is running off the local php server. 
 To run the server, `php -S localhost:8000 public/index.php`
 All the requests come through `public/index.php`
@@ -31,7 +31,6 @@ The idea behind the commands was to have them run as cron scripts on the server 
 should start/end which will save a human having to start and end them. To create a new consignment you will need to 
 the `public/endpoints.md` file.
 
- 
 ###Just to give an overview
 - bin - console commands are instantiated here
 - data - none relevant data that can be deleted.
@@ -50,4 +49,6 @@ the `public/endpoints.md` file.
 - Repositories - The section that communicates with the Database
 - Services - Where all business logic is handled
 
-If you need any more of a breakdown with the way I have done things then I will let you know.
+Please note for the API side, I would have added in switching of data, e.g. if passed an XML request, then I would have
+returned XML, the same with validating a bearer token, ensuring it came from the right IP address as well.
+The same for the unit tests. I only wrote tests for one Command just to demonstrate the point that I can do it.
